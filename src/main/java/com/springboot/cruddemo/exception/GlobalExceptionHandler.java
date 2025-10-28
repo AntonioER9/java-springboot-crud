@@ -41,6 +41,20 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(CsvProcessingException.class)
+    public ResponseEntity<Map<String, Object>> handleCsvProcessingException(
+            CsvProcessingException ex, WebRequest request) {
+
+        Map<String, Object> errorDetails = new HashMap<>();
+        errorDetails.put("timestamp", LocalDateTime.now());
+        errorDetails.put("status", HttpStatus.BAD_REQUEST.value());
+        errorDetails.put("error", "CSV Processing Error");
+        errorDetails.put("message", ex.getMessage());
+        errorDetails.put("path", request.getDescription(false).replace("uri=", ""));
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGlobalException(
             Exception ex, WebRequest request) {

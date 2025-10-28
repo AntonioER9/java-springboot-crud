@@ -6,7 +6,6 @@ import com.springboot.cruddemo.dto.EmployeeDTO;
 import com.springboot.cruddemo.exception.BadRequestException;
 import com.springboot.cruddemo.service.EmployeeService;
 import com.springboot.cruddemo.util.PatchValidationUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,6 @@ public class EmployeeController {
     private final ObjectMapper objectMapper;
     private final PatchValidationUtil patchValidationUtil;
 
-    @Autowired
     public EmployeeController(EmployeeService theEmployeeService,
                             ObjectMapper theObjectMapper,
                             PatchValidationUtil thePatchValidationUtil) {

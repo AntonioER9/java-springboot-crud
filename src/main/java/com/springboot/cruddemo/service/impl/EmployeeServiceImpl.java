@@ -1,11 +1,11 @@
-package com.springboot.cruddemo.service;
+package com.springboot.cruddemo.service.impl;
 
 import com.springboot.cruddemo.dto.EmployeeDTO;
 import com.springboot.cruddemo.entity.Employee;
 import com.springboot.cruddemo.exception.ResourceNotFoundException;
 import com.springboot.cruddemo.repository.EmployeeRepository;
+import com.springboot.cruddemo.service.EmployeeService;
 import com.springboot.cruddemo.util.EmployeeMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +17,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final EmployeeMapper employeeMapper;
 
-    @Autowired
     public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository, EmployeeMapper theEmployeeMapper) {
         this.employeeRepository = theEmployeeRepository;
         this.employeeMapper = theEmployeeMapper;
