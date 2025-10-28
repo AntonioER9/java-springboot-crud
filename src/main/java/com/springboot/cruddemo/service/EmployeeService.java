@@ -1,16 +1,16 @@
 package com.springboot.cruddemo.service;
 
-import com.springboot.cruddemo.entity.Employee;
+import com.springboot.cruddemo.dto.EmployeeDTO;
 
 import java.util.List;
 
 public interface EmployeeService {
 
-    List<Employee> findAll();
+    List<EmployeeDTO> findAll();
 
-    Employee findById(int theId);
+    EmployeeDTO findById(int theId);
 
-    Employee save(Employee theEmployee);
+    EmployeeDTO save(EmployeeDTO theEmployeeDTO);
 
     void deleteById(int theId);
 
